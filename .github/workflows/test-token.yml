@@ -1,0 +1,58 @@
+name: Test Token Program
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'token/**'
+      - '.github/workflows/test-token.yml'
+  pull_request:
+    paths:
+      - 'token/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: token
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+
+      - name: Install Solana CLI
+        run: |
+          sh -c "$(curl -sSfL https://release.solana.com/v1.18.18/install)"
+          echo "$HOME/.local/share/solana/install/active_release/bin" >> $GITHUB_PATH
+
+      - name: Install Anchor CLI
+        run: |
+          cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
+          avm install 0.30.1
+          avm use 0.30.1
+
+      - name: Setup Solana keypair
+        run: |
+          solana-keygen new --no-bip39-passphrase
+          solana config set --url localhost
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build program
+        run: anchor build
+
+      - name: Run tests
+        run: anchor test

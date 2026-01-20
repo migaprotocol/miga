@@ -1,0 +1,25 @@
+{
+  "name": "@miga/dao",
+  "version": "0.1.0",
+  "description": "MIGA DAO - EVM contracts for 10-DAO governance structure",
+  "scripts": {
+    "build": "forge build",
+    "test": "forge test",
+    "deploy:mainnet": "forge script scripts/Deploy.s.sol --rpc-url mainnet --broadcast --verify",
+    "deploy:base": "forge script scripts/Deploy.s.sol --rpc-url base --broadcast --verify",
+    "deploy:arbitrum": "forge script scripts/Deploy.s.sol --rpc-url arbitrum --broadcast --verify",
+    "deploy:polygon": "forge script scripts/Deploy.s.sol --rpc-url polygon --broadcast --verify",
+    "deploy:lux": "forge script scripts/Deploy.s.sol --rpc-url lux --broadcast"
+  },
+  "devDependencies": {
+    "@openzeppelin/contracts": "^5.1.0"
+  },
+  "keywords": [
+    "miga",
+    "dao",
+    "ethereum",
+    "solidity",
+    "governance"
+  ],
+  "license": "MIT"
+}

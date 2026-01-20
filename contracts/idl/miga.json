@@ -1,0 +1,113 @@
+{
+  "version": "0.1.0",
+  "name": "miga",
+  "instructions": [
+    {
+      "name": "initialize",
+      "accounts": [
+        { "name": "authority", "isMut": true, "isSigner": true },
+        { "name": "config", "isMut": true, "isSigner": false },
+        { "name": "mint", "isMut": false, "isSigner": false },
+        { "name": "treasury", "isMut": true, "isSigner": false },
+        { "name": "bondingCurveVault", "isMut": false, "isSigner": false },
+        { "name": "lpVault", "isMut": false, "isSigner": false },
+        { "name": "systemProgram", "isMut": false, "isSigner": false },
+        { "name": "tokenProgram", "isMut": false, "isSigner": false },
+        { "name": "associatedTokenProgram", "isMut": false, "isSigner": false }
+      ],
+      "args": [
+        { "name": "bump", "type": "u8" }
+      ]
+    },
+    {
+      "name": "buy",
+      "accounts": [
+        { "name": "buyer", "isMut": true, "isSigner": true },
+        { "name": "config", "isMut": true, "isSigner": false },
+        { "name": "bondingCurveVault", "isMut": true, "isSigner": false },
+        { "name": "buyerTokenAccount", "isMut": true, "isSigner": false },
+        { "name": "mint", "isMut": false, "isSigner": false },
+        { "name": "treasury", "isMut": true, "isSigner": false },
+        { "name": "systemProgram", "isMut": false, "isSigner": false },
+        { "name": "tokenProgram", "isMut": false, "isSigner": false },
+        { "name": "associatedTokenProgram", "isMut": false, "isSigner": false }
+      ],
+      "args": [
+        { "name": "solAmount", "type": "u64" },
+        { "name": "minTokensOut", "type": "u64" }
+      ]
+    },
+    {
+      "name": "getPrice",
+      "accounts": [
+        { "name": "config", "isMut": false, "isSigner": false }
+      ],
+      "args": [],
+      "returns": "u64"
+    },
+    {
+      "name": "toggleSale",
+      "accounts": [
+        { "name": "authority", "isMut": true, "isSigner": true },
+        { "name": "config", "isMut": true, "isSigner": false }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Config",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          { "name": "authority", "type": "publicKey" },
+          { "name": "mint", "type": "publicKey" },
+          { "name": "treasury", "type": "publicKey" },
+          { "name": "bondingCurveVault", "type": "publicKey" },
+          { "name": "lpVault", "type": "publicKey" },
+          { "name": "bump", "type": "u8" },
+          { "name": "tokensSold", "type": "u64" },
+          { "name": "solRaised", "type": "u64" },
+          { "name": "saleActive", "type": "bool" }
+        ]
+      }
+    }
+  ],
+  "events": [
+    {
+      "name": "InitializeEvent",
+      "fields": [
+        { "name": "authority", "type": "publicKey", "index": false },
+        { "name": "mint", "type": "publicKey", "index": false },
+        { "name": "timestamp", "type": "i64", "index": false }
+      ]
+    },
+    {
+      "name": "PurchaseEvent",
+      "fields": [
+        { "name": "buyer", "type": "publicKey", "index": false },
+        { "name": "solAmount", "type": "u64", "index": false },
+        { "name": "tokensReceived", "type": "u64", "index": false },
+        { "name": "pricePerToken", "type": "u64", "index": false },
+        { "name": "timestamp", "type": "i64", "index": false }
+      ]
+    },
+    {
+      "name": "SaleStatusEvent",
+      "fields": [
+        { "name": "active", "type": "bool", "index": false },
+        { "name": "timestamp", "type": "i64", "index": false }
+      ]
+    }
+  ],
+  "errors": [
+    { "code": 6000, "name": "SaleNotActive", "msg": "Sale is not currently active" },
+    { "code": 6001, "name": "InvalidAmount", "msg": "Invalid amount" },
+    { "code": 6002, "name": "SaleComplete", "msg": "Bonding curve sale is complete" },
+    { "code": 6003, "name": "SlippageExceeded", "msg": "Slippage tolerance exceeded" },
+    { "code": 6004, "name": "ExceedsSupply", "msg": "Would exceed bonding curve supply" }
+  ],
+  "metadata": {
+    "address": "MiGAxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  }
+}
