@@ -1,0 +1,41 @@
+% =============================================================================
+\section{Privacy \& Security}
+% =============================================================================
+
+\subsection{Multi-Chain Privacy Stack}
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\textbf{Chain} & \textbf{Function} \\
+\midrule
+C-Chain (Lux) & Public governance, receipts \\
+T-Chain (Lux) & Private voting (TFHE), threshold ops \\
+Z-Chain (Lux) & Shielded treasury \\
+Q-Chain (Lux) & Post-quantum communications \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{What Is Public vs. Private}
+
+\begin{center}
+\begin{tabular}{p{5cm}p{5cm}}
+\toprule
+\textbf{Public} & \textbf{Private} \\
+\midrule
+Outcomes, receipts, totals & Individual votes \\
+Rules, audit trails & Beneficiary identities \\
+Treasury balances & Operator keys \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Post-Quantum Security}
+
+Hybrid cryptography during transition:
+\begin{itemize}
+    \item \textbf{Key Exchange}: X25519 + ML-KEM-768
+    \item \textbf{Signatures}: Ed25519 + ML-DSA-65
+    \item \textbf{Communication}: AES-256-GCM + ML-KEM hybrid
+\end{itemize}

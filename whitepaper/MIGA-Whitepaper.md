@@ -21,7 +21,7 @@ We fund programs with transparent flows.
 We measure integrity continuously.
 We are Persian in heritage, universal in dignity.
 
-Join the MIGA Network.
+Join the Pars Network.
 ```
 
 ---

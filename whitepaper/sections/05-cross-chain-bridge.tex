@@ -1,0 +1,30 @@
+% =============================================================================
+\section{Cross-Chain Bridge Architecture}
+% =============================================================================
+
+\subsection{Wormhole Integration}
+
+Primary bridge protocol for Solana to EVM chains:
+
+\begin{verbatim}
+Solana (SPL) --> Wormhole --> Ethereum (wMIGA)
+                         --> Base (wMIGA)
+                         --> Arbitrum (wMIGA)
+                         --> Polygon (wMIGA)
+\end{verbatim}
+
+\subsection{Lux Bridge}
+
+For Ethereum to Lux (privacy features):
+
+\begin{verbatim}
+Ethereum --> Lux Bridge --> Lux (wMIGA)
+\end{verbatim}
+
+\subsection{Bitcoin Integration (Planned)}
+
+Via Zeus Network for Runes/BRC-20:
+
+\begin{verbatim}
+Bitcoin (Runes) <--> Zeus Network <--> Solana (SPL)
+\end{verbatim}

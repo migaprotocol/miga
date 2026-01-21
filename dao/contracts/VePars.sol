@@ -35,6 +35,13 @@ contract VePars is ReentrancyGuard, Ownable {
     /// @notice Per-wallet cap: 5% of total vePARS
     uint256 public constant WALLET_CAP_BPS = 500; // 5%
 
+    /// @notice Minimum initial deposit to prevent first-mover capture
+    /// Set high enough to make attack uneconomical (100 PARS + 100 MIGA minimum)
+    uint256 public constant MIN_INITIAL_DEPOSIT = 100 * 10**18;
+
+    /// @notice Dead shares burned on first deposit to prevent inflation attacks
+    uint256 public constant DEAD_SHARES = 1000;
+
     /// @notice Lock structure
     struct Lock {
         uint256 parsAmount;
@@ -81,6 +88,7 @@ contract VePars is ReentrancyGuard, Ownable {
     error LockNotFound();
     error ExceedsPositionCap();
     error ExceedsWalletCap();
+    error BelowMinimumInitialDeposit();
 
     constructor(address _pars, address _miga) Ownable(msg.sender) {
         pars = IERC20(_pars);
@@ -110,7 +118,21 @@ contract VePars is ReentrancyGuard, Ownable {
         uint256 unlockTime = block.timestamp + duration;
         uint256 votingPower = _calculateVotingPower(parsAmount, migaAmount, duration);
 
-        // Check caps
+        // First depositor protection: require minimum deposit to prevent capture attacks
+        // When totalVotingPower is 0, caps cannot be enforced (division by zero)
+        // So we require a significant initial deposit to make attacks uneconomical
+        if (totalVotingPower == 0) {
+            if (parsAmount < MIN_INITIAL_DEPOSIT || migaAmount < MIN_INITIAL_DEPOSIT) {
+                revert BelowMinimumInitialDeposit();
+            }
+            // Burn dead shares from first depositor's voting power
+            // This creates a permanent minimum in totalVotingPower, ensuring caps work
+            votingPower = votingPower > DEAD_SHARES ? votingPower - DEAD_SHARES : 1;
+            // Add dead shares to total but not to user
+            totalVotingPower = DEAD_SHARES;
+        }
+
+        // Check caps (now safe because totalVotingPower > 0 after first deposit)
         if (votingPower > (totalVotingPower * POSITION_CAP_BPS) / 10000 && totalVotingPower > 0) {
             revert ExceedsPositionCap();
         }

@@ -1,0 +1,41 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage{array}
+
+\geometry{margin=1in}
+
+% Colors
+\definecolor{migagold}{RGB}{212, 175, 55}
+\definecolor{migadark}{RGB}{30, 30, 30}
+\definecolor{migablue}{RGB}{45, 85, 145}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=migablue,
+    urlcolor=migablue,
+    citecolor=migablue
+}
+
+% Headers
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{migagold}{\textbf{MIGA Protocol}}}
+\fancyhead[R]{\textcolor{gray}{Whitepaper v1.0}}
+\fancyfoot[C]{\thepage}
+
+% Title formatting
+\titleformat{\section}{\Large\bfseries\color{migadark}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{migablue}}{\thesubsection}{1em}{}

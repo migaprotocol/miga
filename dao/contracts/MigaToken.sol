@@ -45,6 +45,7 @@ contract MigaToken is
     error NotBridge();
     error ExceedsMaxSupply();
     error ZeroAddress();
+    error InsufficientAllowance();
 
     modifier onlyBridge() {
         if (msg.sender != bridge) revert NotBridge();
@@ -79,6 +80,8 @@ contract MigaToken is
 
     /**
      * @notice Burn tokens when bridging back to Solana
+     * @dev Requires approval from token holder to prevent unauthorized burns
+     *      User must approve the bridge contract before bridging
      * @param from Address to burn from
      * @param amount Amount to burn
      */
@@ -87,6 +90,14 @@ contract MigaToken is
         onlyBridge
         nonReentrant
     {
+        // Security: Bridge can only burn tokens that the holder has approved
+        // This prevents a compromised bridge from stealing all user tokens
+        // Users must explicitly approve the bridge before bridging out
+        if (from != msg.sender) {
+            uint256 currentAllowance = allowance(from, msg.sender);
+            if (currentAllowance < amount) revert InsufficientAllowance();
+            _approve(from, msg.sender, currentAllowance - amount);
+        }
         _burn(from, amount);
         emit CrosschainBurn(from, amount);
     }

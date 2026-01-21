@@ -138,12 +138,25 @@ contract DaoVault is ERC4626, Ownable, ReentrancyGuard {
         uint256 fee = (assets * withdrawFeeBps) / 10000;
         uint256 assetsAfterFee = assets - fee;
 
-        uint256 shares = super.withdraw(assets, address(this), owner);
+        // Calculate shares for the FULL assets amount (what user requested)
+        uint256 shares = previewWithdraw(assets);
 
-        if (fee > 0) {
-            IERC20(asset()).safeTransfer(feeRecipient, fee);
+        // Handle allowance if caller is not owner
+        if (msg.sender != owner) {
+            _spendAllowance(owner, msg.sender, shares);
         }
-        IERC20(asset()).safeTransfer(receiver, assetsAfterFee);
+
+        // Burn shares from owner
+        _burn(owner, shares);
+
+        // Transfer assets: fee to recipient, remainder to receiver
+        IERC20 assetToken = IERC20(asset());
+        assetToken.safeTransfer(receiver, assetsAfterFee);
+        if (fee > 0) {
+            assetToken.safeTransfer(feeRecipient, fee);
+        }
+
+        emit Withdraw(msg.sender, receiver, owner, assets, shares);
 
         return shares;
     }

@@ -1,0 +1,82 @@
+% =============================================================================
+\section{Token Architecture: Multi-Chain Native}
+% =============================================================================
+
+\subsection{Seven Blockchains, One Token}
+
+MIGA token is native to Solana with bridges to six additional chains:
+
+\begin{longtable}{p{2.5cm}p{2.5cm}p{3cm}p{4cm}}
+\toprule
+\textbf{Chain} & \textbf{Standard} & \textbf{Bridge} & \textbf{Purpose} \\
+\midrule
+\endhead
+Solana & SPL Token & Native & Primary chain, bonding curve \\
+Ethereum & ERC-20 & Wormhole & DeFi integrations, DAO contracts \\
+Base & ERC-20 & Wormhole & Low-cost transactions \\
+Arbitrum & ERC-20 & Wormhole & L2 scaling \\
+Polygon & ERC-20 & Wormhole & Mass adoption \\
+Lux & ERC-20 & Lux Bridge & Privacy features \\
+Bitcoin & Runes & Zeus Network & Store of value \\
+\bottomrule
+\end{longtable}
+
+\subsection{Tokenomics}
+
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+\textbf{Allocation} & \textbf{Amount} \\
+\midrule
+Total Supply & 1,000,000,000 MIGA \\
+Meteora DLMM LP & 100,000,000 (10\%) \\
+One-Sided Bonding Curve & 400,000,000 (40\%) \\
+Treasury (DAO-governed) & 500,000,000 (50\%) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Important:} There is no team allocation, no advisor tokens, no VC rounds. The team participates like everyone else.
+
+\subsection{Bonding Curve Mechanics}
+
+The bonding curve provides fair price discovery:
+
+\begin{itemize}
+    \item \textbf{Start Price}: 0.0000001 SOL per token
+    \item \textbf{End Price}: 0.00001 SOL per token (100x increase)
+    \item \textbf{Curve}: Linear progression based on tokens sold
+    \item \textbf{Slippage Protection}: Minimum tokens out parameter
+\end{itemize}
+
+\begin{equation}
+\text{Price} = \text{StartPrice} + \frac{\text{TokensSold}}{\text{TotalSupply}} \times (\text{EndPrice} - \text{StartPrice})
+\end{equation}
+
+\subsection{Governance Token Architecture}
+
+\begin{center}
+\begin{tabular}{p{2cm}p{3cm}p{7cm}}
+\toprule
+\textbf{Token} & \textbf{Type} & \textbf{Purpose} \\
+\midrule
+MIGA & Collateral & Alignment---stake what you cannot afford to lose \\
+PARS & Emission & Coordination---flows to builders, decays when idle \\
+sPARS & Rebasing & Multiplied rewards for continuous participation \\
+vePARS & Vote-Escrow & Governance power---lock PARS + MIGA together \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Governance Power Formula}
+
+\begin{equation}
+\text{vePARS} = \min(\text{PARS}, \text{MIGA}) \times \sqrt{\frac{\text{lock\_duration}}{\text{max\_duration}}}
+\end{equation}
+
+This enforces:
+\begin{itemize}
+    \item \textbf{Balance}: Need both tokens---whales without MIGA cannot dominate
+    \item \textbf{Commitment}: Longer locks earn more power
+    \item \textbf{Diminishing Returns}: Square root prevents capture
+\end{itemize}

@@ -1,0 +1,56 @@
+% =============================================================================
+\section{The Ten DAOs: Specialized Pillars}
+% =============================================================================
+
+\subsection{DAO Structure}
+
+The DAO layer operates on EVM (Ethereum/Lux) while the token remains native on Solana:
+
+\begin{longtable}{p{0.8cm}p{1.2cm}p{2.5cm}p{2.5cm}p{4cm}}
+\toprule
+\textbf{\#} & \textbf{Symbol} & \textbf{Persian} & \textbf{Domain} & \textbf{Strategy} \\
+\midrule
+\endhead
+1 & AMN & Amniyat (Security) & Security & Stablecoin-only, audits \\
+2 & KHAZ & Khazaneh (Treasury) & Treasury & Diversified reserves \\
+3 & DAD & Dad (Justice) & Governance & Minimal, tooling \\
+4 & SAL & Salamat (Health) & Health & Stablecoin + yield \\
+5 & FARH & Farhang (Culture) & Culture & Creator grants \\
+6 & DAN & Danesh (Knowledge) & Research & Research grants \\
+7 & SAZ & Sazandegi (Building) & Infrastructure & Procurement \\
+8 & PAY & Payam (Message) & Consular & Coordination \\
+9 & WAQF & Waqf (Endowment) & Endowment & Long-horizon venture \\
+10 & MIZ & Mizan (Balance) & Integrity & Impact audits \\
+\bottomrule
+\end{longtable}
+
+\subsection{Fee Allocation}
+
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+\textbf{DAO} & \textbf{Allocation} \\
+\midrule
+KHAZ (Treasury) & 25\% \\
+WAQF (Endowment) & 15\% \\
+SAL (Health) & 10\% \\
+DAN (Research) & 10\% \\
+SAZ (Infrastructure) & 10\% \\
+FARH (Culture) & 7\% \\
+AMN (Security) & 5\% \\
+DAD (Governance) & 5\% \\
+MIZ (Integrity) & 5\% \\
+PAY (Consular) & 3\% \\
+Emergency Reserve & 5\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{DAO Token Architecture (ERC-4626)}
+
+Each DAO operates on EVM with:
+\begin{itemize}
+    \item \textbf{DaoVault}: ERC-4626 vault holding assets
+    \item \textbf{DaoShare}: DAO token = shares in vault
+    \item \textbf{BondDepository}: Discounted entry with vesting
+\end{itemize}

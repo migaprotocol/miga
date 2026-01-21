@@ -4,7 +4,7 @@ use anchor_spl::{
     token_interface::{self, Mint, TokenAccount, TokenInterface, TransferChecked},
 };
 
-declare_id!("MiGAxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+declare_id!("11111111111111111111111111111111");
 
 /// MIGA Token Program - Modern Solana Standards (Anchor 0.30+)
 ///
@@ -44,22 +44,26 @@ pub mod miga {
 
     /// Buy tokens from the bonding curve
     pub fn buy(ctx: Context<Buy>, sol_amount: u64, min_tokens_out: u64) -> Result<()> {
-        let config = &mut ctx.accounts.config;
+        // Extract immutable data first to avoid borrow conflicts
+        let config_bump = ctx.accounts.config.bump;
+        let tokens_sold = ctx.accounts.config.tokens_sold;
+        let sol_raised = ctx.accounts.config.sol_raised;
+        let sale_active = ctx.accounts.config.sale_active;
+        let mint_decimals = ctx.accounts.mint.decimals;
 
-        require!(config.sale_active, MigaError::SaleNotActive);
+        require!(sale_active, MigaError::SaleNotActive);
         require!(sol_amount > 0, MigaError::InvalidAmount);
         require!(
-            config.tokens_sold < BONDING_CURVE_SUPPLY,
+            tokens_sold < BONDING_CURVE_SUPPLY,
             MigaError::SaleComplete
         );
 
         // Calculate tokens based on bonding curve
-        let tokens_out = calculate_tokens_for_sol(config.tokens_sold, sol_amount)?;
+        let tokens_out = calculate_tokens_for_sol(tokens_sold, sol_amount)?;
 
         require!(tokens_out >= min_tokens_out, MigaError::SlippageExceeded);
         require!(
-            config
-                .tokens_sold
+            tokens_sold
                 .checked_add(tokens_out)
                 .ok_or(MigaError::Overflow)?
                 <= BONDING_CURVE_SUPPLY,
@@ -79,7 +83,7 @@ pub mod miga {
         )?;
 
         // Transfer tokens from bonding curve vault to buyer
-        let seeds = &[b"config".as_ref(), &[config.bump]];
+        let seeds = &[b"config".as_ref(), &[config_bump]];
         let signer_seeds = &[&seeds[..]];
 
         token_interface::transfer_checked(
@@ -94,16 +98,15 @@ pub mod miga {
                 signer_seeds,
             ),
             tokens_out,
-            ctx.accounts.mint.decimals,
+            mint_decimals,
         )?;
 
         // Update state
-        config.tokens_sold = config
-            .tokens_sold
+        let config = &mut ctx.accounts.config;
+        config.tokens_sold = tokens_sold
             .checked_add(tokens_out)
             .ok_or(MigaError::Overflow)?;
-        config.sol_raised = config
-            .sol_raised
+        config.sol_raised = sol_raised
             .checked_add(sol_amount)
             .ok_or(MigaError::Overflow)?;
 
@@ -243,18 +246,76 @@ fn get_current_price(tokens_sold: u64) -> u64 {
     START_PRICE + price_increase as u64
 }
 
-/// Calculate tokens received for a given SOL amount
+/// Calculate tokens received for a given SOL amount using integrated price
+///
+/// For a linear bonding curve P(x) = P0 + m*x where:
+///   P0 = START_PRICE, m = (END_PRICE - START_PRICE) / BONDING_CURVE_SUPPLY
+///
+/// The SOL cost for buying from x0 to x1 tokens is the integral:
+///   SOL = integral(P(x), x0, x1) = P0*(x1-x0) + m*(x1^2 - x0^2)/2
+///
+/// Solving for x1 given x0 and SOL amount:
+///   Using quadratic formula on: m*x1^2/2 + P0*x1 = SOL + m*x0^2/2 + P0*x0
 fn calculate_tokens_for_sol(current_sold: u64, sol_amount: u64) -> Result<u64> {
-    let current_price = get_current_price(current_sold);
+    // Price slope: m = (END_PRICE - START_PRICE) / BONDING_CURVE_SUPPLY
+    // We use high precision (1e18) to avoid rounding errors
+    let price_range = (END_PRICE - START_PRICE) as u128;
+    let supply = BONDING_CURVE_SUPPLY as u128;
 
-    // tokens = sol_amount * 10^9 / price
-    let tokens = (sol_amount as u128)
+    // For small purchases, use average price approximation (more gas efficient)
+    // Average price = (P(x0) + P(x1)) / 2 ≈ P(x0 + tokens/2)
+    // Iterative approach: estimate tokens, refine with average price
+
+    let start_price = get_current_price(current_sold) as u128;
+    let sol = sol_amount as u128;
+
+    // Initial estimate using start price
+    let mut tokens_estimate = sol
         .checked_mul(10u128.pow(9))
         .ok_or(MigaError::Overflow)?
-        .checked_div(current_price as u128)
+        .checked_div(start_price)
         .ok_or(MigaError::Overflow)?;
 
-    Ok(tokens as u64)
+    // Refine estimate using average price (Newton-Raphson style, 2 iterations sufficient)
+    for _ in 0..2 {
+        let end_sold = current_sold as u128 + tokens_estimate;
+        if end_sold > supply {
+            tokens_estimate = supply - current_sold as u128;
+            break;
+        }
+
+        // Calculate actual cost for this many tokens using trapezoidal integration
+        // cost = tokens * (start_price + end_price) / 2
+        let end_price = START_PRICE as u128 + (price_range * end_sold) / supply;
+        let avg_price = (start_price + end_price) / 2;
+
+        // New estimate: tokens = sol * 1e9 / avg_price
+        tokens_estimate = sol
+            .checked_mul(10u128.pow(9))
+            .ok_or(MigaError::Overflow)?
+            .checked_div(avg_price.max(1))
+            .ok_or(MigaError::Overflow)?;
+    }
+
+    // Final validation: ensure we don't give more tokens than SOL pays for
+    // Recalculate exact cost and ensure sol_amount >= cost
+    let final_tokens = tokens_estimate.min(supply - current_sold as u128);
+    let final_end = current_sold as u128 + final_tokens;
+    let final_end_price = START_PRICE as u128 + (price_range * final_end) / supply;
+    let avg_price = (start_price + final_end_price) / 2;
+    let required_sol = (final_tokens * avg_price) / 10u128.pow(9);
+
+    // If we overestimated, reduce tokens
+    if required_sol > sol {
+        let adjusted_tokens = sol
+            .checked_mul(10u128.pow(9))
+            .ok_or(MigaError::Overflow)?
+            .checked_div(avg_price.max(1))
+            .ok_or(MigaError::Overflow)?;
+        return Ok(adjusted_tokens as u64);
+    }
+
+    Ok(final_tokens as u64)
 }
 
 // ============================================================================
