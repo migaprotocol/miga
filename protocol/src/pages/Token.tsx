@@ -14,125 +14,125 @@ export default function Token() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-900">
+    <div className="min-h-screen flex flex-col bg-black">
       <Header />
 
-      <main className="flex-1 py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-8">
-            <span className="gradient-text">$MIGA</span> Token
+      <main className="flex-1 pt-24 pb-16">
+        <div className="max-w-4xl mx-auto px-6">
+          <h1 className="text-4xl lg:text-5xl font-medium mb-10 tracking-tight">
+            <span className="text-gold">$MIGA</span> Token
           </h1>
 
-          <div className="space-y-8">
+          <div className="space-y-6">
             {/* Contract Address */}
-            <div className="card-glass rounded-xl p-6">
-              <h2 className="text-lg font-semibold mb-4">Contract Address</h2>
-              <div className="flex items-center gap-2 bg-slate-800 rounded-lg p-3">
-                <code className="flex-1 text-sm text-emerald-400 break-all">{tokenAddress}</code>
+            <div className="card rounded-xl p-6">
+              <h2 className="text-base font-medium mb-4 text-white/80">Contract Address</h2>
+              <div className="flex items-center gap-2 bg-white/5 rounded-lg p-3 border border-white/10">
+                <code className="flex-1 text-sm text-gold font-mono break-all">{tokenAddress}</code>
                 <button
                   onClick={copyAddress}
-                  className="p-2 hover:bg-slate-700 rounded transition"
+                  className="p-2 hover:bg-white/10 rounded transition-colors"
                 >
-                  {copied ? <Check size={18} className="text-emerald-400" /> : <Copy size={18} />}
+                  {copied ? <Check size={18} className="text-gold" /> : <Copy size={18} className="text-white/40" />}
                 </button>
               </div>
             </div>
 
             {/* Token Info */}
-            <div className="card-glass rounded-xl p-6">
-              <h2 className="text-lg font-semibold mb-4">Token Information</h2>
-              <div className="space-y-4">
-                <div className="flex justify-between py-2 border-b border-slate-700">
-                  <span className="text-gray-400">Name</span>
-                  <span className="font-semibold">MIGA</span>
+            <div className="card rounded-xl p-6">
+              <h2 className="text-base font-medium mb-4 text-white/80">Token Information</h2>
+              <div className="space-y-3">
+                <div className="flex justify-between py-2 border-b border-white/5">
+                  <span className="text-white/40 text-sm">Name</span>
+                  <span className="font-medium text-sm">MIGA</span>
                 </div>
-                <div className="flex justify-between py-2 border-b border-slate-700">
-                  <span className="text-gray-400">Symbol</span>
-                  <span className="font-semibold">MIGA</span>
+                <div className="flex justify-between py-2 border-b border-white/5">
+                  <span className="text-white/40 text-sm">Symbol</span>
+                  <span className="font-medium text-sm">MIGA</span>
                 </div>
-                <div className="flex justify-between py-2 border-b border-slate-700">
-                  <span className="text-gray-400">Decimals</span>
-                  <span className="font-semibold">9</span>
+                <div className="flex justify-between py-2 border-b border-white/5">
+                  <span className="text-white/40 text-sm">Decimals</span>
+                  <span className="font-medium font-mono text-sm">9</span>
                 </div>
-                <div className="flex justify-between py-2 border-b border-slate-700">
-                  <span className="text-gray-400">Total Supply</span>
-                  <span className="font-semibold">1,000,000,000</span>
+                <div className="flex justify-between py-2 border-b border-white/5">
+                  <span className="text-white/40 text-sm">Total Supply</span>
+                  <span className="font-medium font-mono text-sm text-gold">1,000,000,000</span>
                 </div>
-                <div className="flex justify-between py-2 border-b border-slate-700">
-                  <span className="text-gray-400">Network</span>
-                  <span className="font-semibold">Solana</span>
+                <div className="flex justify-between py-2 border-b border-white/5">
+                  <span className="text-white/40 text-sm">Network</span>
+                  <span className="font-medium text-sm">Solana</span>
                 </div>
                 <div className="flex justify-between py-2">
-                  <span className="text-gray-400">Standard</span>
-                  <span className="font-semibold">SPL Token</span>
+                  <span className="text-white/40 text-sm">Standard</span>
+                  <span className="font-medium text-sm">SPL Token</span>
                 </div>
               </div>
             </div>
 
             {/* Distribution */}
-            <div className="card-glass rounded-xl p-6">
-              <h2 className="text-lg font-semibold mb-4">Token Distribution</h2>
+            <div className="card rounded-xl p-6">
+              <h2 className="text-base font-medium mb-4 text-white/80">Token Distribution</h2>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
-                  <div className="w-full bg-slate-700 rounded-full h-4 overflow-hidden">
-                    <div className="h-full bg-emerald-500" style={{ width: '10%' }} />
+                  <div className="w-full bg-white/5 rounded-full h-2.5 overflow-hidden">
+                    <div className="h-full bg-[#C9A227]/60" style={{ width: '10%' }} />
                   </div>
-                  <span className="text-sm whitespace-nowrap">10% LP</span>
+                  <span className="text-xs whitespace-nowrap text-white/50 font-mono w-24">10% LP</span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-full bg-slate-700 rounded-full h-4 overflow-hidden">
-                    <div className="h-full bg-indigo-500" style={{ width: '40%' }} />
+                  <div className="w-full bg-white/5 rounded-full h-2.5 overflow-hidden">
+                    <div className="h-full bg-[#C9A227]" style={{ width: '40%' }} />
                   </div>
-                  <span className="text-sm whitespace-nowrap">40% Sale</span>
+                  <span className="text-xs whitespace-nowrap text-white/50 font-mono w-24">40% Sale</span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-full bg-slate-700 rounded-full h-4 overflow-hidden">
-                    <div className="h-full bg-purple-500" style={{ width: '50%' }} />
+                  <div className="w-full bg-white/5 rounded-full h-2.5 overflow-hidden">
+                    <div className="h-full bg-[#F4D03F]" style={{ width: '50%' }} />
                   </div>
-                  <span className="text-sm whitespace-nowrap">50% Treasury</span>
+                  <span className="text-xs whitespace-nowrap text-white/50 font-mono w-24">50% Treasury</span>
                 </div>
               </div>
             </div>
 
             {/* Links */}
-            <div className="card-glass rounded-xl p-6">
-              <h2 className="text-lg font-semibold mb-4">Links</h2>
-              <div className="grid sm:grid-cols-2 gap-4">
+            <div className="card rounded-xl p-6">
+              <h2 className="text-base font-medium mb-4 text-white/80">Links</h2>
+              <div className="grid sm:grid-cols-2 gap-3">
                 <a
                   href="https://solscan.io/token/MIGA_ADDRESS"
-                  className="flex items-center justify-between p-3 bg-slate-800 rounded-lg hover:bg-slate-700 transition"
+                  className="flex items-center justify-between p-3 bg-white/5 rounded-lg hover:bg-white/10 border border-transparent hover:border-[#C9A227]/30 transition-all text-sm"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <span>Solscan</span>
-                  <ExternalLink size={18} />
+                  <ExternalLink size={16} className="text-white/30" />
                 </a>
                 <a
                   href="https://birdeye.so/token/MIGA_ADDRESS"
-                  className="flex items-center justify-between p-3 bg-slate-800 rounded-lg hover:bg-slate-700 transition"
+                  className="flex items-center justify-between p-3 bg-white/5 rounded-lg hover:bg-white/10 border border-transparent hover:border-[#C9A227]/30 transition-all text-sm"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <span>Birdeye</span>
-                  <ExternalLink size={18} />
+                  <ExternalLink size={16} className="text-white/30" />
                 </a>
                 <a
                   href="https://app.meteora.ag/pools/MIGA_POOL"
-                  className="flex items-center justify-between p-3 bg-slate-800 rounded-lg hover:bg-slate-700 transition"
+                  className="flex items-center justify-between p-3 bg-white/5 rounded-lg hover:bg-white/10 border border-transparent hover:border-[#C9A227]/30 transition-all text-sm"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <span>Meteora Pool</span>
-                  <ExternalLink size={18} />
+                  <ExternalLink size={16} className="text-white/30" />
                 </a>
                 <a
                   href="https://jup.ag/swap/SOL-MIGA"
-                  className="flex items-center justify-between p-3 bg-slate-800 rounded-lg hover:bg-slate-700 transition"
+                  className="flex items-center justify-between p-3 bg-white/5 rounded-lg hover:bg-white/10 border border-transparent hover:border-[#C9A227]/30 transition-all text-sm"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <span>Jupiter</span>
-                  <ExternalLink size={18} />
+                  <ExternalLink size={16} className="text-white/30" />
                 </a>
               </div>
             </div>
