@@ -21,6 +21,8 @@ We fund programs with transparent flows.
 We measure integrity continuously.
 We are Persian in heritage, universal in dignity.
 
+Build wealth. Fund public goods. Prove every dollar.
+
 Join the Pars Network.
 ```
 
@@ -31,12 +33,14 @@ Join the Pars Network.
 1. [The Cyrus Legacy: From Empire to Exile](#1-the-cyrus-legacy-from-empire-to-exile)
 2. [The MIGA Vision](#2-the-miga-vision)
 3. [Token Architecture](#3-token-architecture)
-4. [The Ten DAOs](#4-the-ten-daos)
-5. [Humanitarian Crisis Response](#5-humanitarian-crisis-response)
-6. [Community Chapters](#6-community-chapters)
-7. [Privacy & Security](#7-privacy--security)
-8. [Roadmap](#8-roadmap)
-9. [Conclusion](#9-conclusion)
+4. [DeFi Pillars: Earn, Advance, Stake](#4-defi-pillars-earn-advance-stake)
+5. [The Ten DAOs](#5-the-ten-daos)
+6. [Shariah Compliance Framework](#6-shariah-compliance-framework)
+7. [Humanitarian Crisis Response](#7-humanitarian-crisis-response)
+8. [Community Chapters](#8-community-chapters)
+9. [Privacy & Security](#9-privacy--security)
+10. [Roadmap](#10-roadmap)
+11. [Conclusion](#11-conclusion)
 
 ---
 
@@ -166,9 +170,49 @@ This enforces:
 
 ---
 
-## 4. The Ten DAOs
+## 4. DeFi Pillars: Earn, Advance, Stake
 
-### 4.1 Specialized Pillars
+MIGA provides three core DeFi primitives designed for compliant, transparent capital allocation.
+
+### 4.1 Earn — Compliant Yield Strategies
+
+Deposit assets into curated vault strategies with transparent risk bands.
+
+- **Mechanism**: Fee-based yield (mudarabah-style profit-sharing)
+- **Risk Tiers**: Conservative, Balanced, Growth
+- **Transparency**: On-chain allocation, real-time performance
+- **Compliance**: Scholar-attested strategies available
+
+### 4.2 Advance — Self-Repaying Liquidity (Alchemix-style)
+
+Unlock liquidity against future yield without traditional borrowing.
+
+- **Mechanism**: Deposit collateral → Take advance → Vault yield repays balance
+- **No Interest**: Fixed one-time fee only (riba-free)
+- **Self-Repaying**: Your yield automatically pays down the advance
+- **LTV Limits**: Conservative collateral ratios with liquidation protection
+
+> **How It Works**:
+> 1. Deposit 100 USDC to vault
+> 2. Take 50 USDC advance (50% LTV)
+> 3. Vault generates yield
+> 4. Yield repays advance over time
+> 5. Withdraw full balance when clear
+
+### 4.3 Stake — Governance Participation
+
+Lock tokens to govern protocol parameters and direct treasury allocation.
+
+- **Mechanism**: vePARS vote-escrow governance
+- **Rewards**: Work-based emissions for active participation
+- **Power**: Direct DAO funding, risk parameters, compliance decisions
+- **Lock Periods**: 1 week to 4 years (longer = more power)
+
+---
+
+## 5. The Ten DAOs
+
+### 5.1 Specialized Pillars
 
 | # | Symbol | Persian | Domain | Strategy |
 |:--|:-------|:--------|:-------|:---------|
@@ -183,7 +227,7 @@ This enforces:
 | 9 | WAQF | وقف (Waqf) | Endowment | Long-horizon venture |
 | 10 | MIZ | میزان (Mizan) | Integrity | Impact audits |
 
-### 4.2 Fee Allocation
+### 5.2 Fee Allocation
 
 | DAO | Allocation |
 |:----|:-----------|
@@ -199,7 +243,7 @@ This enforces:
 | PAY (Consular) | 3% |
 | Emergency Reserve | 5% |
 
-### 4.3 ERC-4626 Vault Architecture
+### 5.3 ERC-4626 Vault Architecture
 
 Each DAO operates on EVM with:
 - **DaoVault**: ERC-4626 vault holding assets
@@ -208,11 +252,43 @@ Each DAO operates on EVM with:
 
 ---
 
-## 5. Humanitarian Crisis Response
+## 6. Shariah Compliance Framework
+
+MIGA offers optional Shariah-compliant strategies for users who require riba-free (interest-free) participation. Compliance is **attestation-based, not claimed**.
+
+### 6.1 Compliant Mechanisms
+
+| Product | Mechanism | Compliance |
+|:--------|:----------|:-----------|
+| **Earn** | Fee-based yield (mudarabah-style) | Scholar-attested |
+| **Advance** | Self-repaying (no interest) | Fee-only, riba-free |
+| **Stake** | Governance participation | Work-based rewards |
+
+### 6.2 Attestation Process
+
+1. **Strategy Design**: Protocol designs compliant vault strategy
+2. **Scholar Review**: Qualified Islamic scholars examine contract mechanics
+3. **Attestation**: Signed attestation published to IPFS
+4. **On-chain Link**: Attestation CID stored in vault metadata
+5. **Continuous Audit**: MIZ DAO monitors ongoing compliance
+
+### 6.3 What Makes It Compliant
+
+- **No riba (usury)**: Advances repay via yield, not interest accrual
+- **Fee-based only**: One-time fees, not compounding interest
+- **Real economic activity**: Yield from actual protocol usage
+- **Risk sharing**: Depositors share in both gains and losses
+- **No haram assets**: Compliant pools exclude prohibited industries
+
+> **Permissionless + Attestation**: MIGA is permissionless DeFi. Anyone can use any strategy. Shariah attestations are proof artifacts for those who need them—not gatekeeping. Non-compliant strategies remain available for other users.
+
+---
+
+## 7. Humanitarian Crisis Response
 
 The Persian diaspora has repeatedly mobilized during crises—earthquakes, floods, political upheaval, and now ongoing humanitarian emergencies. MIGA provides permanent infrastructure for these efforts.
 
-### 5.1 Current Crisis: Why This Matters Now
+### 7.1 Current Crisis: Why This Matters Now
 
 Iran faces compounding humanitarian challenges:
 - **Economic collapse**: Currency devaluation, unemployment, poverty
@@ -223,7 +299,7 @@ Iran faces compounding humanitarian challenges:
 
 > **Urgent Need**: The diaspora sends an estimated $10–20 billion annually to Iran through informal channels. MIGA can make this transparent, efficient, and impactful—while protecting senders and recipients.
 
-### 5.2 DAO Response Framework
+### 7.2 DAO Response Framework
 
 | DAO | Crisis Function | Example Actions |
 |:----|:----------------|:----------------|
@@ -235,7 +311,7 @@ Iran faces compounding humanitarian challenges:
 | DAN (Research) | Documentation | Human rights reports, crisis monitoring |
 | WAQF (Endowment) | Long-term | Orphan funds, education scholarships, rebuilding |
 
-### 5.3 Emergency Response Mechanisms
+### 7.3 Emergency Response Mechanisms
 
 **1. Rapid Response Fund**
 - 5% of treasury in stablecoin emergency reserve
@@ -252,7 +328,7 @@ Iran faces compounding humanitarian challenges:
 - Professional networks (doctors, lawyers, engineers)
 - Housing and employment assistance databases
 
-### 5.4 Privacy-Preserving Aid
+### 7.4 Privacy-Preserving Aid
 
 For people in dangerous situations:
 - **Shielded disbursements**: Recipients cannot be traced
@@ -260,7 +336,7 @@ For people in dangerous situations:
 - **Verified impact**: Zero-knowledge proof of delivery
 - **Protected voting**: Beneficiaries can participate safely
 
-### 5.5 Accountability Without Exposure
+### 7.5 Accountability Without Exposure
 
 | Public | Private |
 |:-------|:--------|
@@ -272,17 +348,17 @@ The MIZ (Integrity) DAO conducts quarterly impact audits. Results are published.
 
 ---
 
-## 6. Community Chapters
+## 8. Community Chapters
 
 A Chapter is a gauge. It represents a community—physical or virtual—that serves the diaspora.
 
-### 6.1 Chapter Types
+### 8.1 Chapter Types
 
 - **City Chapters**: Los Angeles, Toronto, London, Berlin, Sydney, Dubai
 - **University Chapters**: Stanford, MIT, Oxford, Toronto, TUM
 - **Guild Chapters**: Developers, Artists, Researchers, Entrepreneurs
 
-### 6.2 Launching a Chapter
+### 8.2 Launching a Chapter
 
 1. Gather 10 founding members with vePARS
 2. Submit proposal to governance
@@ -293,18 +369,18 @@ Chapters earn PARS emissions proportional to their votes. They report quarterly.
 
 ---
 
-## 7. Privacy & Security
+## 9. Privacy & Security
 
-### 7.1 Multi-Chain Privacy Stack (Lux Network)
+### 9.1 Multi-Chain Privacy Stack (Lux Network)
 
 | Chain | Function |
 |:------|:---------|
 | C-Chain | Public governance, receipts |
 | T-Chain | Private voting (TFHE), threshold ops |
 | Z-Chain | Shielded treasury |
-| Q-Chain | Post-quantum communications |
+| Q-Chain | Secure communications (PQ-ready) |
 
-### 7.2 What Is Public vs. Private
+### 9.2 What Is Public vs. Private
 
 | Public | Private |
 |:-------|:--------|
@@ -312,16 +388,18 @@ Chapters earn PARS emissions proportional to their votes. They report quarterly.
 | Rules, audit trails | Beneficiary identities |
 | Treasury balances | Operator keys |
 
-### 7.3 Post-Quantum Security
+### 9.3 Future-Ready Security
 
-Hybrid cryptography during transition:
-- **Key Exchange**: X25519 + ML-KEM-768
-- **Signatures**: Ed25519 + ML-DSA-65
-- **Communication**: AES-256-GCM + ML-KEM hybrid
+Cryptographic standards evolve with best practices:
+- **Key Exchange**: X25519 (PQ upgrades planned)
+- **Signatures**: Ed25519 (PQ upgrades planned)
+- **Communication**: AES-256-GCM standard encryption
+
+> **Note**: Post-quantum cryptographic algorithms are planned for future integration as standards mature.
 
 ---
 
-## 8. Roadmap
+## 10. Roadmap
 
 ### Phase 1: Foundation (2026–2027)
 - Legal entity establishment
@@ -353,7 +431,7 @@ Hybrid cryptography during transition:
 
 ---
 
-## 9. Conclusion
+## 11. Conclusion
 
 MIGA is not about nostalgia. It is about building what tyrants cannot burn.
 

@@ -171,6 +171,33 @@ The project traces Persian history from the Cyrus Cylinder (539 BCE) through:
 3. **Phase 3 (2028-2030)**: Scale - 40+ countries, 100K+ members, $100M+ TVL
 4. **Phase 4 (2030+)**: Nation-Ready - Full civic services, decentralized ops
 
+## Shariah Compliance Framework
+
+MIGA offers optional Shariah-compliant strategies. Compliance is **attestation-based, not claimed**.
+
+### Compliant Mechanisms
+| Product | Mechanism | Compliance |
+|---------|-----------|------------|
+| **Earn** | Fee-based yield (mudarabah-style) | Scholar-attested |
+| **Advance** | Self-repaying (no interest) | Fee-only, riba-free |
+| **Stake** | Governance participation | Work-based rewards |
+
+### Attestation Process
+1. **Strategy Design**: Protocol designs compliant vault strategy
+2. **Scholar Review**: Qualified scholars examine contract mechanics
+3. **Attestation**: Signed attestation published to IPFS
+4. **On-chain Link**: Attestation CID stored in vault metadata
+5. **Continuous Audit**: MIZ DAO monitors ongoing compliance
+
+### Key Principles
+- **No riba (usury)**: Advances repay via yield, not interest accrual
+- **Fee-based only**: One-time fees, not compounding interest
+- **Real economic activity**: Yield from actual protocol usage
+- **Risk sharing**: Depositors share in both gains and losses
+- **No haram assets**: Compliant pools exclude prohibited industries
+
+**Note**: MIGA is permissionless DeFi. Anyone can use any strategy. Shariah attestations are proof artifacts for those who need them—not gatekeeping.
+
 ## Important Notes
 
 - Token native on Solana, bridged to EVM via Wormhole
@@ -178,3 +205,23 @@ The project traces Persian history from the Cyrus Cylinder (539 BCE) through:
 - No team tokens - team buys on bonding curve like everyone else
 - Persian heritage names for all 10 DAOs
 - Privacy-preserving voting for high-threat environments
+- "Borrow" renamed to "Advance" (Alchemix-style self-repaying)
+- Tagline: "Build wealth. Fund public goods. Prove every dollar."
+
+## Recent Changes (2026-01-21)
+
+### Protocol Site Updates (`/protocol/`)
+- **Index.tsx**: Updated hero tagline to "Build wealth. Fund public goods. Prove every dollar."
+- **Three Pillars**: Renamed "Borrow" to "Advance" with Alchemix-style self-repaying mechanics
+  - Earn: "Deposit into compliant yield strategies with transparent risk bands"
+  - Advance: "Unlock liquidity against future yield. Your vault yield repays the balance over time"
+  - Stake: "Govern treasury allocation, risk parameters, and impact funding via vePARS"
+- **How It Works**: Updated to reflect deposit → advance → auto-repay flow
+- **Risk & Compliance**: Added Shariah attestation card, updated audit status to "In Progress"
+- Removed "quantum-safe" unverifiable claims, changed to "Lux Network with Solana-grade speed"
+
+### Docs.tsx Updates
+- Added "Shariah Compliance Framework" section with attestation process
+- Updated Quick Nav to include Shariah Compliance link
+- Changed "Post-Quantum Security" to "Future-Ready Security" (honest about planned upgrades)
+- Fixed Q-Chain description to "Secure communications (PQ-ready)"
