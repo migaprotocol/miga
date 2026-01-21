@@ -2,6 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { WalletProvider } from "@/components/WalletProvider";
+import { GlobalChatWidget } from "@/components/GlobalChatWidget";
 import Index from "./pages/Index";
 import Token from "./pages/Token";
 import Docs from "./pages/Docs";
@@ -20,6 +21,7 @@ const App = () => (
           <Route path="/docs" element={<Docs />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <GlobalChatWidget />
       </BrowserRouter>
     </TooltipProvider>
   </WalletProvider>

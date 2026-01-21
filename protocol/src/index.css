@@ -2,41 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-/* MIGA Theme - Gold/Black based on Hanzo UI design system */
+/* MIGA Theme - Persian Gold/Deep Blue aesthetic */
 @layer base {
   :root {
     /* Hanzo-style CSS variables with MIGA gold */
     --radius: 0.65rem;
-    --background: 0 0% 0%;
+    --background: 240 20% 4%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 4%;
+    --card: 240 20% 6%;
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 4%;
+    --popover: 240 20% 6%;
     --popover-foreground: 0 0% 98%;
-    --primary: 43 74% 49%;
+    --primary: 43 74% 52%;
     --primary-foreground: 0 0% 0%;
-    --secondary: 0 0% 10%;
+    --secondary: 240 20% 10%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 15%;
+    --muted: 240 15% 15%;
     --muted-foreground: 0 0% 64%;
-    --accent: 43 74% 49%;
+    --accent: 43 74% 52%;
     --accent-foreground: 0 0% 0%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14%;
-    --input: 0 0% 14%;
-    --ring: 43 74% 49%;
+    --border: 240 15% 14%;
+    --input: 240 15% 14%;
+    --ring: 43 74% 52%;
 
-    /* MIGA Gold Palette */
-    --gold: #C9A227;
+    /* MIGA Gold Palette - Refined */
+    --gold: #D4AF37;
     --gold-light: #F4D03F;
     --gold-dark: #8B6914;
     --gold-bright: #FFD700;
+    
+    /* Persian Deep Blue */
+    --deep-blue: #1a1a2e;
+    --deep-blue-light: #252541;
+    --deep-blue-dark: #0a0a12;
 
     /* Chart colors (gold gradient) */
     --chart-1: 43 74% 70%;
     --chart-2: 43 74% 60%;
-    --chart-3: 43 74% 49%;
+    --chart-3: 43 74% 52%;
     --chart-4: 43 74% 40%;
     --chart-5: 43 74% 30%;
   }
@@ -52,7 +57,8 @@
   }
 
   body {
-    @apply bg-black text-white antialiased;
+    @apply text-white antialiased;
+    background: #0a0a12;
     font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-feature-settings: 'rlig' 1, 'calt' 1;
     font-synthesis-weight: none;
@@ -70,7 +76,7 @@
   }
 
   ::selection {
-    background: rgba(201, 162, 39, 0.3);
+    background: rgba(212, 175, 55, 0.3);
     color: white;
   }
 }
@@ -87,18 +93,18 @@
 
 /* Gold color utilities */
 .text-gold {
-  color: var(--gold);
+  color: #D4AF37;
 }
 .bg-gold {
-  background-color: var(--gold);
+  background-color: #D4AF37;
 }
 .border-gold {
-  border-color: var(--gold);
+  border-color: #D4AF37;
 }
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #C9A227 0%, #F4D03F 50%, #C9A227 100%);
+  background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 50%, #D4AF37 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -109,29 +115,29 @@
    ======================================== */
 
 .card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(26, 26, 46, 0.5);
+  border: 1px solid rgba(212, 175, 55, 0.1);
   border-radius: var(--radius);
   transition: all 0.2s ease;
 }
 
 .card:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(26, 26, 46, 0.7);
+  border-color: rgba(212, 175, 55, 0.2);
 }
 
 /* Feature card - larger padding */
 .feature-card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(26, 26, 46, 0.4);
+  border: 1px solid rgba(212, 175, 55, 0.1);
   border-radius: calc(var(--radius) + 4px);
   padding: 2rem;
   transition: all 0.3s ease;
 }
 
 .feature-card:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(201, 162, 39, 0.2);
+  background: rgba(26, 26, 46, 0.6);
+  border-color: rgba(212, 175, 55, 0.25);
   transform: translateY(-2px);
 }
 
@@ -139,12 +145,15 @@
 .stat-card {
   text-align: center;
   padding: 1.5rem;
+  background: rgba(26, 26, 46, 0.3);
+  border-radius: var(--radius);
+  border: 1px solid rgba(212, 175, 55, 0.1);
 }
 
 .stat-card .stat-value {
   font-size: 2.5rem;
   font-weight: 500;
-  color: var(--gold);
+  color: #D4AF37;
   letter-spacing: -0.02em;
 }
 
@@ -163,8 +172,8 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: var(--gold);
-  color: black;
+  background: #D4AF37;
+  color: #0a0a12;
   font-weight: 500;
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
@@ -173,7 +182,7 @@
 }
 
 .btn-primary:hover {
-  background: var(--gold-light);
+  background: #F4D03F;
   transform: translateY(-1px);
 }
 
@@ -219,7 +228,7 @@
    ======================================== */
 
 .glass {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(10, 10, 18, 0.8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
@@ -300,23 +309,23 @@
    ======================================== */
 
 .wallet-adapter-button {
-  background: var(--gold) !important;
-  color: black !important;
+  background: #D4AF37 !important;
+  color: #0a0a12 !important;
   font-weight: 500 !important;
   border-radius: 9999px !important;
 }
 
 .wallet-adapter-button:hover {
-  background: var(--gold-light) !important;
+  background: #F4D03F !important;
 }
 
 .wallet-adapter-modal-wrapper {
-  background: rgba(0, 0, 0, 0.9) !important;
+  background: rgba(10, 10, 18, 0.95) !important;
 }
 
 .wallet-adapter-modal-container {
-  background: #0a0a0a !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: #0f0f1a !important;
+  border: 1px solid rgba(212, 175, 55, 0.2) !important;
 }
 
 /* ========================================
@@ -609,4 +618,93 @@
 .tier-bronze {
   background: linear-gradient(135deg, #CD7F32 0%, #8B4513 100%);
   color: white;
+}
+
+/* ========================================
+   PERSIAN GEOMETRIC PATTERNS
+   ======================================== */
+
+/* Main Persian geometric pattern - subtle 8-pointed stars */
+.persian-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.15'%3E%3Cpath d='M30 0l7.5 22.5L60 30l-22.5 7.5L30 60l-7.5-22.5L0 30l22.5-7.5z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: 60px 60px;
+}
+
+/* Persian corner decorative element */
+.persian-corner {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='none' stroke='%23D4AF37' stroke-width='1.5' d='M0,0 L50,0 L50,10 L10,10 L10,50 L0,50 Z M50,0 Q70,0 70,20 Q70,35 50,35 M0,50 Q0,70 20,70 Q35,70 35,50'/%3E%3Ccircle cx='35' cy='35' r='5' fill='none' stroke='%23D4AF37' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Persian arabesque flowing pattern */
+.persian-arabesque {
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23D4AF37' stroke-width='0.5'%3E%3Cpath d='M0 40 Q20 20, 40 40 Q60 60, 80 40'/%3E%3Cpath d='M0 0 Q20 20, 40 0 Q60 -20, 80 0' transform='translate(0,20)'/%3E%3Cpath d='M0 60 Q20 40, 40 60 Q60 80, 80 60'/%3E%3Ccircle cx='40' cy='40' r='15'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+
+/* Persian star pattern - more intricate */
+.persian-star-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23D4AF37' stroke-width='0.8'%3E%3Cpolygon points='50,5 61,35 95,35 68,55 79,90 50,70 21,90 32,55 5,35 39,35'/%3E%3Ccircle cx='50' cy='50' r='20'/%3E%3Ccircle cx='50' cy='50' r='10'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100px 100px;
+}
+
+/* Persian medallion - central decorative element */
+.persian-medallion {
+  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23D4AF37' stroke-width='1'%3E%3Ccircle cx='100' cy='100' r='95'/%3E%3Ccircle cx='100' cy='100' r='80'/%3E%3Ccircle cx='100' cy='100' r='60'/%3E%3Ccircle cx='100' cy='100' r='40'/%3E%3Ccircle cx='100' cy='100' r='20'/%3E%3Cpath d='M100,5 L100,195 M5,100 L195,100'/%3E%3Cpath d='M30,30 L170,170 M170,30 L30,170'/%3E%3Cpolygon points='100,10 115,40 150,40 123,60 135,95 100,75 65,95 77,60 50,40 85,40'/%3E%3Cpolygon points='100,190 115,160 150,160 123,140 135,105 100,125 65,105 77,140 50,160 85,160'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Persian border pattern - repeating geometric */
+.persian-border-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23D4AF37' stroke-width='0.5'%3E%3Crect x='5' y='5' width='30' height='30'/%3E%3Crect x='10' y='10' width='20' height='20' transform='rotate(45 20 20)'/%3E%3Ccircle cx='20' cy='20' r='5'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 40px 40px;
+}
+
+/* Persian hexagonal pattern */
+.persian-hex-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.08'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Persian stained glass - colorful overlay */
+.persian-stained-glass {
+  background-image: 
+    radial-gradient(ellipse at 20% 30%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(26, 26, 46, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 60%),
+    url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23D4AF37' stroke-width='0.5'%3E%3Cpolygon points='60,10 75,30 100,35 80,55 85,80 60,68 35,80 40,55 20,35 45,30'/%3E%3Ccircle cx='60' cy='60' r='25'/%3E%3Ccircle cx='60' cy='60' r='15'/%3E%3Ccircle cx='60' cy='60' r='5'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100% 100%, 100% 100%, 100% 100%, 120px 120px;
+}
+
+/* Persian geometric background - subtle lines */
+.persian-geometric-bg {
+  background-image:
+    linear-gradient(30deg, rgba(212, 175, 55, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(212, 175, 55, 0.03) 87.5%, rgba(212, 175, 55, 0.03)),
+    linear-gradient(150deg, rgba(212, 175, 55, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(212, 175, 55, 0.03) 87.5%, rgba(212, 175, 55, 0.03)),
+    linear-gradient(30deg, rgba(212, 175, 55, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(212, 175, 55, 0.03) 87.5%, rgba(212, 175, 55, 0.03)),
+    linear-gradient(150deg, rgba(212, 175, 55, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(212, 175, 55, 0.03) 87.5%, rgba(212, 175, 55, 0.03)),
+    linear-gradient(60deg, rgba(26, 26, 46, 0.1) 25%, transparent 25.5%, transparent 75%, rgba(26, 26, 46, 0.1) 75%, rgba(26, 26, 46, 0.1)),
+    linear-gradient(60deg, rgba(26, 26, 46, 0.1) 25%, transparent 25.5%, transparent 75%, rgba(26, 26, 46, 0.1) 75%, rgba(26, 26, 46, 0.1));
+  background-size: 40px 70px;
+  background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
+}
+
+/* Gold particle animation */
+@keyframes goldFloat {
+  0%, 100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  100% {
+    transform: translateY(-100vh) translateX(30px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.gold-particle {
+  animation: goldFloat 12s ease-in-out infinite;
 }

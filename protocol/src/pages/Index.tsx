@@ -8,35 +8,36 @@ export default function Index() {
   const { connected } = useWallet();
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-[#0a0a12]">
       <Header />
 
       <main className="pt-16">
-        {/* Hero Section - Epic Game Style */}
+        {/* Hero Section - Elegant Persian Style */}
         <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
-          {/* Persian architecture cinematic background */}
-          <div
-            className="absolute inset-0 bg-cover bg-center scale-110"
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1564769662533-4f00a87b4056?w=1920&q=80')`,
-            }}
-          />
-          {/* Dark cinematic overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black" />
-          {/* Gold tint overlay */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-[#C9A227]/10 via-transparent to-[#FFD700]/5" />
+          {/* Persian geometric pattern background */}
+          <div className="absolute inset-0 persian-pattern opacity-20" />
+          {/* Elegant gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a12] via-[#0a0a12]/90 to-[#0a0a12]" />
+          {/* Gold accent gradient */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#D4AF37]/5 via-transparent to-[#1a1a2e]/30" />
+          
+          {/* Decorative corner elements */}
+          <div className="absolute top-20 left-10 w-32 h-32 persian-corner opacity-30" />
+          <div className="absolute top-20 right-10 w-32 h-32 persian-corner opacity-30 rotate-90" />
+          <div className="absolute bottom-20 left-10 w-32 h-32 persian-corner opacity-30 -rotate-90" />
+          <div className="absolute bottom-20 right-10 w-32 h-32 persian-corner opacity-30 rotate-180" />
 
-          {/* Floating sand particles */}
+          {/* Subtle gold particles */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {[...Array(20)].map((_, i) => (
+            {[...Array(15)].map((_, i) => (
               <div
                 key={i}
-                className="absolute w-1 h-1 bg-[#C9A227]/60 rounded-full sand-particle"
+                className="absolute w-1 h-1 bg-[#D4AF37]/40 rounded-full gold-particle"
                 style={{
-                  left: `${Math.random() * 100}%`,
+                  left: `${10 + Math.random() * 80}%`,
                   bottom: '-10px',
-                  animationDelay: `${Math.random() * 8}s`,
-                  animationDuration: `${6 + Math.random() * 4}s`,
+                  animationDelay: `${Math.random() * 10}s`,
+                  animationDuration: `${8 + Math.random() * 6}s`,
                 }}
               />
             ))}
@@ -114,12 +115,25 @@ export default function Index() {
         </section>
 
         {/* Stats Section */}
-        <section className="py-20 border-y border-white/5">
-          <div className="max-w-7xl mx-auto px-6">
+        <section className="py-20 border-y border-[#D4AF37]/10 relative">
+          <div className="absolute inset-0 persian-border-pattern opacity-5" />
+          <div className="relative max-w-7xl mx-auto px-6">
+            {/* Multi-chain badge */}
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#1a1a2e]/80 border border-[#D4AF37]/20">
+                <span className="text-[#D4AF37] text-sm font-medium">Multi-Chain</span>
+                <span className="w-px h-4 bg-[#D4AF37]/30" />
+                <span className="text-white/60 text-sm">7B Total Supply across 7 Chains</span>
+              </div>
+            </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="stat-card">
-                <div className="stat-value">1B</div>
+                <div className="stat-value">7B</div>
                 <div className="stat-label">Total Supply</div>
+              </div>
+              <div className="stat-card">
+                <div className="stat-value">1B</div>
+                <div className="stat-label">Live on Solana</div>
               </div>
               <div className="stat-card">
                 <div className="stat-value">50%</div>
@@ -129,24 +143,15 @@ export default function Index() {
                 <div className="stat-value">40%</div>
                 <div className="stat-label">Fair Sale</div>
               </div>
-              <div className="stat-card">
-                <div className="stat-value">10%</div>
-                <div className="stat-label">Liquidity</div>
-              </div>
             </div>
           </div>
         </section>
 
         {/* Mission Section */}
         <section className="section relative overflow-hidden">
-          {/* Persian architecture background */}
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-10"
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1564769662533-4f00a87b4056?w=1920&q=80')`,
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/95 to-black/90" />
+          {/* Persian geometric background */}
+          <div className="absolute inset-0 persian-arabesque opacity-5" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a12] via-[#0a0a12]/95 to-[#0a0a12]/90" />
 
           <div className="relative z-10 max-w-7xl mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -164,79 +169,85 @@ export default function Index() {
                   community-governed DAO treasury.
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  <span className="px-3 py-1.5 rounded-full bg-[#C9A227]/10 border border-[#C9A227]/30 text-sm text-[#C9A227]">Solana Native</span>
-                  <span className="px-3 py-1.5 rounded-full bg-[#C9A227]/10 border border-[#C9A227]/30 text-sm text-[#C9A227]">7 Chains via Wormhole</span>
-                  <span className="px-3 py-1.5 rounded-full bg-[#C9A227]/10 border border-[#C9A227]/30 text-sm text-[#C9A227]">10 Specialized DAOs</span>
+                  <span className="px-3 py-1.5 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-sm text-[#D4AF37]">1B Live on Solana</span>
+                  <span className="px-3 py-1.5 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-sm text-[#D4AF37]">7B across 7 Chains</span>
+                  <span className="px-3 py-1.5 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-sm text-[#D4AF37]">10 Specialized DAOs</span>
                 </div>
               </div>
               <div className="relative">
-                {/* Persepolis / Ancient Persia imagery */}
-                <div
-                  className="aspect-[4/3] rounded-2xl bg-cover bg-center border border-[#C9A227]/20"
-                  style={{
-                    backgroundImage: `url('https://images.unsplash.com/photo-1580828343064-fde4fc206bc6?w=800&q=80')`,
-                  }}
-                />
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                {/* Persian geometric art card */}
+                <div className="aspect-[4/3] rounded-2xl border border-[#D4AF37]/20 overflow-hidden bg-[#0f0f1a]">
+                  <div className="absolute inset-0 persian-star-pattern opacity-30" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a12] via-transparent to-transparent" />
+                  {/* Central decorative element */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-48 h-48 persian-medallion opacity-60" />
+                  </div>
+                </div>
                 {/* Gold corner accents */}
-                <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-[#C9A227]/50 rounded-tl-2xl" />
-                <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-[#C9A227]/50 rounded-br-2xl" />
+                <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-[#D4AF37]/50 rounded-tl-2xl" />
+                <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-[#D4AF37]/50 rounded-br-2xl" />
               </div>
             </div>
           </div>
         </section>
 
         {/* Tokenomics Section */}
-        <section id="tokenomics" className="section bg-white/[0.02]">
-          <div className="max-w-7xl mx-auto px-6">
+        <section id="tokenomics" className="section bg-[#0f0f1a]/50 relative">
+          <div className="absolute inset-0 persian-border-pattern opacity-5" />
+          <div className="relative max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
-                <span className="text-gold">Fair Launch</span> Tokenomics
+                <span className="text-gold">Multi-Chain</span> Tokenomics
               </h2>
               <p className="text-white/50 max-w-2xl mx-auto">
-                Designed for community ownership from day one
+                7 billion tokens across 7 chains — 1 billion launching first on Solana
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
               <div className="feature-card text-center">
-                <div className="w-14 h-14 rounded-xl bg-[#C9A227]/10 flex items-center justify-center mx-auto mb-6">
+                <div className="w-14 h-14 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center mx-auto mb-6">
                   <Coins className="text-gold" size={28} />
                 </div>
                 <div className="text-3xl font-medium text-gold mb-2">10%</div>
-                <h3 className="text-lg font-medium mb-2">Meteora LP</h3>
+                <h3 className="text-lg font-medium mb-2">Liquidity</h3>
                 <p className="text-white/50 text-sm">
-                  100M tokens paired with SOL for deep initial liquidity via Meteora DLMM
+                  700M tokens (100M per chain) paired for deep initial liquidity via Meteora & DEXs
                 </p>
               </div>
 
               <div className="feature-card text-center">
-                <div className="w-14 h-14 rounded-xl bg-[#C9A227]/10 flex items-center justify-center mx-auto mb-6">
+                <div className="w-14 h-14 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center mx-auto mb-6">
                   <Zap className="text-gold" size={28} />
                 </div>
                 <div className="text-3xl font-medium text-gold mb-2">40%</div>
-                <h3 className="text-lg font-medium mb-2">Bonding Curve</h3>
+                <h3 className="text-lg font-medium mb-2">Fair Sale</h3>
                 <p className="text-white/50 text-sm">
-                  400M tokens sold via one-sided bonding curve for fair price discovery
+                  2.8B tokens sold via bonding curves for fair price discovery on each chain
                 </p>
               </div>
 
               <div className="feature-card text-center">
-                <div className="w-14 h-14 rounded-xl bg-[#C9A227]/10 flex items-center justify-center mx-auto mb-6">
+                <div className="w-14 h-14 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center mx-auto mb-6">
                   <Shield className="text-gold" size={28} />
                 </div>
                 <div className="text-3xl font-medium text-gold mb-2">50%</div>
                 <h3 className="text-lg font-medium mb-2">DAO Treasury</h3>
                 <p className="text-white/50 text-sm">
-                  500M tokens governed by the community for humanitarian programs
+                  3.5B tokens governed by the community for humanitarian programs
                 </p>
               </div>
             </div>
 
-            <div className="mt-12 text-center">
-              <div className="inline-flex items-center gap-3 px-6 py-4 rounded-xl bg-white/5 border border-white/10">
+            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div className="inline-flex items-center gap-3 px-6 py-4 rounded-xl bg-[#1a1a2e]/80 border border-[#D4AF37]/20">
                 <span className="text-white/60">Total Supply:</span>
-                <span className="text-2xl font-medium text-gold font-mono">1,000,000,000 MIGA</span>
+                <span className="text-2xl font-medium text-gold font-mono">7,000,000,000 MIGA</span>
+              </div>
+              <div className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/30">
+                <span className="text-[#D4AF37] text-sm font-medium">Solana Launch:</span>
+                <span className="text-white font-mono">1B MIGA</span>
               </div>
             </div>
           </div>
@@ -244,13 +255,8 @@ export default function Index() {
 
         {/* Humanitarian Crisis Section */}
         <section className="section relative overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-10"
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1591985666643-9b8e0c7d91c9?w=1920&q=80')`,
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
+          <div className="absolute inset-0 persian-geometric-bg opacity-5" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a12] via-[#0a0a12]/95 to-[#0a0a12]" />
 
           <div className="relative z-10 max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
@@ -285,7 +291,8 @@ export default function Index() {
         </section>
 
         {/* PIPs - MIGA Improvement Proposals */}
-        <section className="section bg-white/[0.02]">
+        <section className="section bg-[#0f0f1a]/50 relative">
+          <div className="absolute inset-0 persian-border-pattern opacity-5" />
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
@@ -298,7 +305,7 @@ export default function Index() {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="feature-card border-l-2 border-l-[#C9A227]">
+              <div className="feature-card border-l-2 border-l-[#D4AF37]">
                 <Shield className="text-gold mb-4" size={24} />
                 <h3 className="text-lg font-medium mb-2">Women's Rights</h3>
                 <p className="text-white/50 text-sm">
@@ -306,7 +313,7 @@ export default function Index() {
                 </p>
               </div>
 
-              <div className="feature-card border-l-2 border-l-[#C9A227]">
+              <div className="feature-card border-l-2 border-l-[#D4AF37]">
                 <Lock className="text-gold mb-4" size={24} />
                 <h3 className="text-lg font-medium mb-2">Privacy Technology</h3>
                 <p className="text-white/50 text-sm">
@@ -314,7 +321,7 @@ export default function Index() {
                 </p>
               </div>
 
-              <div className="feature-card border-l-2 border-l-[#C9A227]">
+              <div className="feature-card border-l-2 border-l-[#D4AF37]">
                 <Globe className="text-gold mb-4" size={24} />
                 <h3 className="text-lg font-medium mb-2">Secure Communications</h3>
                 <p className="text-white/50 text-sm">
@@ -322,7 +329,7 @@ export default function Index() {
                 </p>
               </div>
 
-              <div className="feature-card border-l-2 border-l-[#C9A227]">
+              <div className="feature-card border-l-2 border-l-[#D4AF37]">
                 <Users className="text-gold mb-4" size={24} />
                 <h3 className="text-lg font-medium mb-2">Education Access</h3>
                 <p className="text-white/50 text-sm">
@@ -330,7 +337,7 @@ export default function Index() {
                 </p>
               </div>
 
-              <div className="feature-card border-l-2 border-l-[#C9A227]">
+              <div className="feature-card border-l-2 border-l-[#D4AF37]">
                 <Coins className="text-gold mb-4" size={24} />
                 <h3 className="text-lg font-medium mb-2">Economic Infrastructure</h3>
                 <p className="text-white/50 text-sm">
@@ -338,7 +345,7 @@ export default function Index() {
                 </p>
               </div>
 
-              <div className="feature-card border-l-2 border-l-[#C9A227]">
+              <div className="feature-card border-l-2 border-l-[#D4AF37]">
                 <Zap className="text-gold mb-4" size={24} />
                 <h3 className="text-lg font-medium mb-2">Persian Endowment</h3>
                 <p className="text-white/50 text-sm">
@@ -386,7 +393,8 @@ export default function Index() {
         </section>
 
         {/* How to Buy Section */}
-        <section id="buy" className="section bg-white/[0.02]">
+        <section id="buy" className="section bg-[#0f0f1a]/50 relative">
+          <div className="absolute inset-0 persian-border-pattern opacity-5" />
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
@@ -425,17 +433,12 @@ export default function Index() {
 
         {/* CTA Section */}
         <section className="section relative overflow-hidden">
-          {/* Nasir al-Mulk Mosque (Pink Mosque) stained glass aesthetic */}
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-15"
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1562979314-bee7453e911c?w=1920&q=80')`,
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/95 to-black/90" />
+          {/* Persian stained glass inspired pattern */}
+          <div className="absolute inset-0 persian-stained-glass opacity-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a12] via-[#0a0a12]/95 to-[#0a0a12]/90" />
 
           {/* Sacred geometry overlay */}
-          <div className="absolute inset-0 hex-pattern opacity-30" />
+          <div className="absolute inset-0 persian-hex-pattern opacity-20" />
 
           <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
             {/* Decorative element */}

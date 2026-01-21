@@ -14,20 +14,32 @@ export default function Token() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-black">
+    <div className="min-h-screen flex flex-col bg-[#0a0a12]">
       <Header />
 
-      <main className="flex-1 pt-24 pb-16">
-        <div className="max-w-4xl mx-auto px-6">
+      <main className="flex-1 pt-24 pb-16 relative">
+        <div className="absolute inset-0 persian-pattern opacity-5" />
+        <div className="relative max-w-4xl mx-auto px-6">
           <h1 className="text-4xl lg:text-5xl font-medium mb-10 tracking-tight">
             <span className="text-gold">$MIGA</span> Token
           </h1>
 
+          {/* Multi-chain notice */}
+          <div className="mb-8 p-4 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/20">
+            <div className="flex items-center gap-3">
+              <div className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse" />
+              <span className="text-[#D4AF37] font-medium">Multi-Chain Token</span>
+            </div>
+            <p className="mt-2 text-white/60 text-sm">
+              MIGA has a total supply of 7 billion tokens across 7 chains. Currently, 1 billion tokens are live on Solana.
+            </p>
+          </div>
+
           <div className="space-y-6">
             {/* Contract Address */}
             <div className="card rounded-xl p-6">
-              <h2 className="text-base font-medium mb-4 text-white/80">Contract Address</h2>
-              <div className="flex items-center gap-2 bg-white/5 rounded-lg p-3 border border-white/10">
+              <h2 className="text-base font-medium mb-4 text-white/80">Solana Contract Address</h2>
+              <div className="flex items-center gap-2 bg-[#1a1a2e]/80 rounded-lg p-3 border border-[#D4AF37]/20">
                 <code className="flex-1 text-sm text-gold font-mono break-all">{tokenAddress}</code>
                 <button
                   onClick={copyAddress}
@@ -55,12 +67,16 @@ export default function Token() {
                   <span className="font-medium font-mono text-sm">9</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-white/5">
-                  <span className="text-white/40 text-sm">Total Supply</span>
-                  <span className="font-medium font-mono text-sm text-gold">1,000,000,000</span>
+                  <span className="text-white/40 text-sm">Total Supply (All Chains)</span>
+                  <span className="font-medium font-mono text-sm text-gold">7,000,000,000</span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-white/5">
+                  <span className="text-white/40 text-sm">Solana Supply</span>
+                  <span className="font-medium font-mono text-sm text-[#D4AF37]">1,000,000,000</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-white/5">
                   <span className="text-white/40 text-sm">Network</span>
-                  <span className="font-medium text-sm">Solana</span>
+                  <span className="font-medium text-sm">Solana (+ 6 chains via Wormhole)</span>
                 </div>
                 <div className="flex justify-between py-2">
                   <span className="text-white/40 text-sm">Standard</span>
