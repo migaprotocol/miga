@@ -171,8 +171,12 @@ export function About() {
           <div className="card p-6 mb-8">
             <ul className="space-y-4 text-gray-300">
               <li className="flex justify-between items-center border-b border-slate-700 pb-4">
-                <span>Total Supply</span>
-                <span className="font-semibold text-white">1,000,000,000 MIGA</span>
+                <span>Total Supply (Multi-chain)</span>
+                <span className="font-semibold text-white">7,000,000,000 MIGA</span>
+              </li>
+              <li className="flex justify-between items-center border-b border-slate-700 pb-4">
+                <span>Live on Solana</span>
+                <span className="font-semibold text-green-400">1B (First Chain)</span>
               </li>
               <li className="flex justify-between items-center border-b border-slate-700 pb-4">
                 <span>Meteora LP (Initial Liquidity)</span>

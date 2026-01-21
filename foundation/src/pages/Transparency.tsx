@@ -102,7 +102,7 @@ export function Transparency() {
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="text-green-400 mt-0.5 flex-shrink-0" size={18} />
-                    <span className="text-gray-300">Total Supply: 1,000,000,000 MIGA</span>
+                    <span className="text-gray-300">Total Supply: 7B MIGA (multi-chain) — 1B live on Solana</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="text-green-400 mt-0.5 flex-shrink-0" size={18} />
