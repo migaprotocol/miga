@@ -360,6 +360,7 @@ export default function Docs() {
               <li><strong>Real economic activity</strong>: Yield from actual protocol usage</li>
               <li><strong>Risk sharing</strong>: Depositors share in both gains and losses</li>
               <li><strong>No haram assets</strong>: Compliant pools exclude prohibited industries</li>
+              <li><strong>Asset-backed options</strong>: DMCC-compliant gold/silver vaults (planned)</li>
             </ul>
 
             <blockquote>
@@ -489,8 +490,8 @@ export default function Docs() {
               <tbody>
                 <tr><td>C-Chain (Lux)</td><td>Public governance, receipts</td></tr>
                 <tr><td>T-Chain (Lux)</td><td>Private voting (TFHE), threshold ops</td></tr>
-                <tr><td>Z-Chain (Lux)</td><td>Shielded treasury</td></tr>
-                <tr><td>Q-Chain (Lux)</td><td>Secure communications (PQ-ready)</td></tr>
+                <tr><td>Z-Chain (Lux)</td><td>Shielded treasury + FHE private compute</td></tr>
+                <tr><td>Q-Chain (Lux)</td><td>Post-quantum communications (ML-KEM)</td></tr>
               </tbody>
             </table>
 
@@ -509,12 +510,12 @@ export default function Docs() {
               </tbody>
             </table>
 
-            <h3>Future-Ready Security</h3>
-            <p>Cryptographic standards evolve with best practices:</p>
+            <h3>Post-Quantum Security</h3>
+            <p>Hybrid cryptography via Lux Network (ML-DSA, Ringtail, FHE):</p>
             <ul>
-              <li><strong>Key Exchange</strong>: X25519 (PQ upgrades planned)</li>
-              <li><strong>Signatures</strong>: Ed25519 (PQ upgrades planned)</li>
-              <li><strong>Communication</strong>: AES-256-GCM standard encryption</li>
+              <li><strong>Key Exchange</strong>: X25519 + ML-KEM-768</li>
+              <li><strong>Signatures</strong>: Ed25519 + ML-DSA-65 (Ringtail)</li>
+              <li><strong>Communication</strong>: AES-256-GCM + FHE for private compute</li>
             </ul>
 
             <h2 id="roadmap">Roadmap</h2>

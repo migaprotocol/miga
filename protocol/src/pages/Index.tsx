@@ -77,7 +77,7 @@ export default function Index() {
               {/* Hidden on mobile for cleaner look */}
               <p className="hidden md:block text-sm text-[#9999A5] mb-8">
                 <span className="text-[#FFD36A]">pars.network</span> — First Persian blockchain.
-                Powered by <span className="text-[#B8B8C6]">Lux Network</span> with Solana-grade speed.
+                Powered by <span className="text-[#B8B8C6]">Lux quantum-safe FHE technology</span>.
               </p>
 
               {/* Button hierarchy: Primary, Secondary, Link */}

@@ -279,6 +279,7 @@ MIGA offers optional Shariah-compliant strategies for users who require riba-fre
 - **Real economic activity**: Yield from actual protocol usage
 - **Risk sharing**: Depositors share in both gains and losses
 - **No haram assets**: Compliant pools exclude prohibited industries
+- **Asset-backed options**: DMCC-compliant gold/silver vaults (planned partnership)
 
 > **Permissionless + Attestation**: MIGA is permissionless DeFi. Anyone can use any strategy. Shariah attestations are proof artifacts for those who need them—not gatekeeping. Non-compliant strategies remain available for other users.
 
@@ -377,8 +378,8 @@ Chapters earn PARS emissions proportional to their votes. They report quarterly.
 |:------|:---------|
 | C-Chain | Public governance, receipts |
 | T-Chain | Private voting (TFHE), threshold ops |
-| Z-Chain | Shielded treasury |
-| Q-Chain | Secure communications (PQ-ready) |
+| Z-Chain | Shielded treasury + FHE private compute |
+| Q-Chain | Post-quantum communications (ML-KEM) |
 
 ### 9.2 What Is Public vs. Private
 
@@ -388,14 +389,14 @@ Chapters earn PARS emissions proportional to their votes. They report quarterly.
 | Rules, audit trails | Beneficiary identities |
 | Treasury balances | Operator keys |
 
-### 9.3 Future-Ready Security
+### 9.3 Post-Quantum Security
 
-Cryptographic standards evolve with best practices:
-- **Key Exchange**: X25519 (PQ upgrades planned)
-- **Signatures**: Ed25519 (PQ upgrades planned)
-- **Communication**: AES-256-GCM standard encryption
+Hybrid cryptography via Lux Network (ML-DSA, Ringtail, FHE):
+- **Key Exchange**: X25519 + ML-KEM-768
+- **Signatures**: Ed25519 + ML-DSA-65 (Ringtail)
+- **Communication**: AES-256-GCM + FHE for private compute
 
-> **Note**: Post-quantum cryptographic algorithms are planned for future integration as standards mature.
+> **Lux Network** provides production post-quantum cryptographic primitives including ML-DSA signatures, ML-KEM key exchange, and fully homomorphic encryption (FHE) for private voting and shielded transactions.
 
 ---
 
