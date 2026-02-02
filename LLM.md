@@ -78,8 +78,8 @@ Specialized pillars with Persian heritage names, operating on EVM:
 │   └── main.pdf       # Built PDF (~670KB)
 └── LLM.md             # This file
 
-# Documentation uses shared Hanzo docs
-# ~/work/hanzo/docs - Documentation for all sites
+# Documentation uses shared Pars Network docs
+# ~/work/Pars Network/docs - Documentation for all sites
 ```
 
 ## Tech Stack
@@ -218,7 +218,7 @@ MIGA offers optional Shariah-compliant strategies. Compliance is **attestation-b
   - Stake: "Govern treasury allocation, risk parameters, and impact funding via vePARS"
 - **How It Works**: Updated to reflect deposit → advance → auto-repay flow
 - **Risk & Compliance**: Added Shariah attestation card, updated audit status to "In Progress"
-- Removed "quantum-safe" unverifiable claims, changed to "Lux Network with Solana-grade speed"
+- Removed "quantum-safe" unverifiable claims, changed to "Pars Network with Solana-grade speed"
 
 ### Docs.tsx Updates
 - Added "Shariah Compliance Framework" section with attestation process

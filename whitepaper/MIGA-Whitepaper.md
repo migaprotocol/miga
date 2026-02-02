@@ -372,7 +372,7 @@ Chapters earn PARS emissions proportional to their votes. They report quarterly.
 
 ## 9. Privacy & Security
 
-### 9.1 Multi-Chain Privacy Stack (Lux Network)
+### 9.1 Multi-Chain Privacy Stack (Pars Network)
 
 | Chain | Function |
 |:------|:---------|
@@ -391,12 +391,12 @@ Chapters earn PARS emissions proportional to their votes. They report quarterly.
 
 ### 9.3 Post-Quantum Security
 
-Hybrid cryptography via Lux Network (ML-DSA, Ringtail, FHE):
+Hybrid cryptography via Pars Network (ML-DSA, Ringtail, FHE):
 - **Key Exchange**: X25519 + ML-KEM-768
 - **Signatures**: Ed25519 + ML-DSA-65 (Ringtail)
 - **Communication**: AES-256-GCM + FHE for private compute
 
-> **Lux Network** provides production post-quantum cryptographic primitives including ML-DSA signatures, ML-KEM key exchange, and fully homomorphic encryption (FHE) for private voting and shielded transactions.
+> **Pars Network** provides production post-quantum cryptographic primitives including ML-DSA signatures, ML-KEM key exchange, and fully homomorphic encryption (FHE) for private voting and shielded transactions.
 
 ---
 

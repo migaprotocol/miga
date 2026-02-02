@@ -267,7 +267,7 @@ export const mips: MIP[] = [
     dao: 'SAZ',
     author: 'SAZ Committee',
     created: '2026-04-10',
-    summary: 'Integrate Lux Network privacy features for optional confidential transactions and voting.',
+    summary: 'Integrate Pars Network privacy features for optional confidential transactions and voting.',
     motivation: 'Privacy is essential for members in high-threat environments.'
   },
   {

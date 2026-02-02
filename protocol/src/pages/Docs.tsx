@@ -511,7 +511,7 @@ export default function Docs() {
             </table>
 
             <h3>Post-Quantum Security</h3>
-            <p>Hybrid cryptography via Lux Network (ML-DSA, Ringtail, FHE):</p>
+            <p>Hybrid cryptography via Pars Network (ML-DSA, Ringtail, FHE):</p>
             <ul>
               <li><strong>Key Exchange</strong>: X25519 + ML-KEM-768</li>
               <li><strong>Signatures</strong>: Ed25519 + ML-DSA-65 (Ringtail)</li>

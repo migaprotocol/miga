@@ -15,7 +15,7 @@ tier: core
 
 ## Abstract
 
-This PIP introduces a privacy-preserving governance architecture that separates public accountability from individual privacy. By leveraging Lux Network's multi-chain infrastructure, PARSDAO achieves private voting through Fully Homomorphic Encryption (FHE) on T-Chain and confidential treasury disbursements through Zero-Knowledge UTXOs on Z-Chain.
+This PIP introduces a privacy-preserving governance architecture that separates public accountability from individual privacy. By leveraging Pars Network's multi-chain infrastructure, PARSDAO achieves private voting through Fully Homomorphic Encryption (FHE) on T-Chain and confidential treasury disbursements through Zero-Knowledge UTXOs on Z-Chain.
 
 ## Motivation
 
@@ -275,14 +275,14 @@ uint256 public cooldownMinutes = 60;
 
 ### Dependencies
 
-- Lux Network (multi-chain infrastructure)
+- Pars Network (multi-chain infrastructure)
 - TFHE-rs (FHE library)
 - Bellman/Halo2 (ZK proof systems)
 - MPC libraries from ~/work/lux/threshold
 
 ## References
 
-- [Lux Network Documentation](https://docs.lux.network)
+- [Pars Network Documentation](https://docs.lux.network)
 - [TFHE: Fully Homomorphic Encryption](https://tfhe.github.io/tfhe/)
 - [Zcash Protocol Specification](https://zips.z.cash/protocol/protocol.pdf)
 - [PIP-0008: Ten Sub-DAO Governance](./pip-0008-ten-subdao-governance.md)
