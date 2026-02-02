@@ -186,7 +186,7 @@ Where:
 
 #### Use Cases
 
-1. **AI Inference**: Running open-source LLMs for Persian NLP
+1. **AI Inference**: Running open-source s for Persian NLP
 2. **Privacy Compute**: ZK proof generation for private transactions
 3. **Model Training**: Fine-tuning models on Persian datasets
 4. **Protocol Infrastructure**: Validators, oracles, keepers
@@ -658,7 +658,7 @@ contract TechnoCapitalGrants is AccessControl {
 
 | Program | Description | PARS Budget |
 |:--------|:------------|:------------|
-| **Farsi NLP** | Train open-source Persian language models | 10% of Code grants |
+| **Farsi NLP** | Train open-source Persian s | 10% of Code grants |
 | **Historical Archives** | Digitize manuscripts, literature, art | 10% of Compute grants |
 | **Translation Network** | Persian ↔ English ↔ Arabic translations | 20% of Community grants |
 

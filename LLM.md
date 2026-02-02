@@ -76,7 +76,7 @@ Specialized pillars with Persian heritage names, operating on EVM:
 │   └── src/           # Wormhole + Lux Bridge integration
 ├── whitepaper/        # LaTeX whitepaper
 │   └── main.pdf       # Built PDF (~670KB)
-└── LLM.md             # This file
+└── .md             # This file
 
 # Documentation uses shared Pars Network docs
 # ~/work/Pars Network/docs - Documentation for all sites
